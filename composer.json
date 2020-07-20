@@ -10,12 +10,12 @@
     ],
     "autoload": {
         "psr-4": {
-            "Xpersonas\\Styleguide\\": "packages/xpersonas/styleguide/app"
+            "Xpersonas\\Styleguide\\": "app/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Xpersonas\\Styleguide\\Tests\\": "tests"
+            "Xpersonas\\Styleguide\\Tests\\": "tests/"
         }
     },
     "require": {},
@@ -26,7 +26,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Xpersonas\\Styleguide\\StyleguideServiceProvider"
+                "Xpersonas\\Styleguide\\Providers\\StyleguideServiceProvider"
             ]
         }
     }
