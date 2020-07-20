@@ -26,6 +26,15 @@ class Base extends Component
      */
     public function render()
     {
+        // Check to ensure migration has been run and tables exist.
+        if (
+            !\Schema::hasTable('styleguide_colors') ||
+            !\Schema::hasTable('styleguide_patterns') ||
+            !\Schema::hasTable('styleguide_basics')
+        ) {
+            return view('styleguide::components.base-error', ['error' => true]);
+        }
+
         $colorsEntities = StyleguideColor::all();
         $colors = null;
         foreach ($colorsEntities as $key => $value) {
