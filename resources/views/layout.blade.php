@@ -24,9 +24,9 @@
 
             .simple-styleguide-container {
                 width: 90%;
-                max-width: 1200px;
-                margin: 0 auto;
-                padding: 40px;
+                max-width: 1030px;
+                margin-left: auto;
+                margin-right: auto;
             }
         </style>
     @show
