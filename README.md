@@ -1,19 +1,22 @@
 ## Xpersonas Laravel Styleguide
 
-Custom styleguide package for Laravel development.
+This package allows admins to create a custom styleguide for Laravel project development. 
+
+**Basic Elements**  
+Choose from a list of basic elements like headings, text, tables, etc.. 
+
+**Colors**  
+Provide a list of colors with class name, description, and hex value.
+
+**Custom Patterns**  
+Admins can also create custom patterns with a built in codemirror textarea. 
 
 ## Installation
 
-Add project via composer file:
-
 ```
-"autoload": {
-    "psr-4": {
-        ...
-        "Xpersonas\\Styleguide\\": "packages/xpersonas/styleguide/app",
-    },
-    ...
-},
+composer require xpersonas/styleguide
+php artisan vendor:publish --tag=xpersonas-styleguide
+php artisan migrate
 ```
 
 ### Component
@@ -29,7 +32,7 @@ The styleguide provides a component that can be dropped in any template. This al
 The styleguide comes with a limited stylesheet for layout. Include this only on your styleguide page.
 
 ```
-<link href="{{ asset('css/vendor/styleguide.css') }}" rel="stylesheet" type="text/css" />
+<link href="{{ asset('css/vendor/xpersonas/styleguide.css') }}" rel="stylesheet" type="text/css" />
 ```
 
 ## Author
