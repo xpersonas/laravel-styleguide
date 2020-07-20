@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Xpersonas\\Styleguide\\": "app"
+            "Xpersonas\\Styleguide\\": "packages/xpersonas/styleguide/app"
         }
     },
     "autoload-dev": {
