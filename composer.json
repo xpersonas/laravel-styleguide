@@ -18,7 +18,9 @@
             "Xpersonas\\Styleguide\\Tests\\": "tests/"
         }
     },
-    "require": {},
+    "require": {
+        "eloquent/composer-npm-bridge": "^4.1"
+    },
     "require-dev": {
         "phpunit/phpunit": "^9.2",
         "orchestra/testbench": "^5.3"
@@ -28,6 +30,10 @@
             "providers": [
                 "Xpersonas\\Styleguide\\Providers\\StyleguideServiceProvider"
             ]
+        },
+        "npm-bridge": {
+            "timeout": 9000,
+            "optional": true
         }
     }
 }
