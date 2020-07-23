@@ -1,4 +1,8 @@
 ## Xpersonas Laravel Styleguide
+![Laravel Styleguide Test](https://github.com/xpersonas/laravel-styleguide/workflows/Laravel%20Styleguide%20Test/badge.svg)
+[![Latest Stable Version](https://poser.pugx.org/xpersonas/laravel-styleguide/v)](//packagist.org/packages/xpersonas/laravel-styleguide)
+[![Total Downloads](https://poser.pugx.org/xpersonas/laravel-styleguide/downloads)](//packagist.org/packages/xpersonas/laravel-styleguide)
+[![License](https://poser.pugx.org/xpersonas/laravel-styleguide/license)](//packagist.org/packages/xpersonas/laravel-styleguide)
 
 This package allows admins to create a custom styleguide for Laravel project development. 
 
@@ -19,23 +23,26 @@ Admins can also create custom patterns with a built in codemirror textarea.
 
 ## Installation
 
+This package comes with 3 models: basic settings, colors, and patterns. Run the following 
+
 ```
 composer require xpersonas/styleguide
 php artisan vendor:publish --tag=xpersonas-styleguide
 php artisan migrate
 ```
 
-### Component
+## Usage
 
-The styleguide provides a component that can be dropped in any template. This allows you to drop it in a page where your styles will be applied.
+The styleguide provides a Laravel component that can be dropped in any of your templates. This allows you to drop it in a page where your styles will be applied to all the elements contained within the styleguide.
 
+Add this to your template:
 ```
 <x-styleguide-styleguide />
 ```
 
-### Stylesheets
+## Stylesheets
 
-The styleguide comes with a limited stylesheet for layout. Include this only on your styleguide page.
+The styleguide comes with a limited stylesheet for layout purposes. Include this only on your styleguide page if needed.
 
 ```
 <link href="{{ asset('css/vendor/xpersonas/styleguide.css') }}" rel="stylesheet" type="text/css" />
@@ -56,6 +63,10 @@ Route::resource('admin/styleguide/basics','Xpersonas\Styleguide\Http\Controllers
 // Wildcard route to protect.
 admin/styleguide/*
 ```
+
+## Contribute
+
+https://github.com/xpersonas/laravel-styleguide/pulls
 
 ## Author
 
