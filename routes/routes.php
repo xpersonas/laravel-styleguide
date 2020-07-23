@@ -8,7 +8,7 @@
 | Default styleguide output page. Use <x-styleguide-styleguide /> w/in your own templates.
 |
 */
-Route::get('styleguide', '\Xpersonas\Styleguide\Http\Controllers\StyleguideController@index')->name('simple-styleguide');
+Route::get('admin/styleguide', '\Xpersonas\Styleguide\Http\Controllers\StyleguideController@index')->name('simple-styleguide');
 
 /*
 |--------------------------------------------------------------------------

@@ -45,7 +45,6 @@ class StyleguideBasicsController extends Controller
      */
     public function store(Request $request)
     {
-
         $input = $request->input('basics');
         $styleguideBasics = new StyleguideBasics();
 
@@ -97,6 +96,5 @@ class StyleguideBasicsController extends Controller
         $model->save();
 
         return redirect()->route('basics.edit', $id)->with('success', 'Styleguide color is successfully updated.');
-
     }
 }

@@ -33,7 +33,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
         $response = $this->get('admin/styleguide/basics');
         $response->assertStatus(200);
 
-        $response = $this->get('simple-styleguide');
+        $response = $this->get('admin/styleguide');
         $response->assertStatus(200);
     }
 
@@ -46,7 +46,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
     {
         factory(StyleguideBasics::class, 10)->create();
 
-        $response = $this->get('simple-styleguide');
+        $response = $this->get('admin/styleguide');
         $response->assertSee('Default patterns');
     }
 
@@ -59,7 +59,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
     {
         factory(StyleguidePattern::class, 10)->create();
 
-        $response = $this->get('simple-styleguide');
+        $response = $this->get('admin/styleguide');
         $response->assertSee('Custom patterns');
     }
 
@@ -72,7 +72,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
     {
         factory(StyleguideColor::class, 4)->create();
 
-        $response = $this->get('simple-styleguide');
+        $response = $this->get('admin/styleguide');
         $response->assertSee('styleguide colors');
     }
 
@@ -161,20 +161,5 @@ class XpersonasStyleguideFeaturesTest extends TestCase
         //It gets stored in the database
         $this->assertEquals(1, StyleguidePattern::all()->count());
     }
-
-    /**
-     * Test styleguide pattern update.
-     *
-     * @return void
-     */
-    // public function testStyleguideAdminPatternFormUpdate()
-    // {
-    //     $pattern = factory(StyleguidePattern::class)->create();
-    //
-    //     $pattern->title = "Updated Title";
-    //     $this->post(route('pattern.edit', $pattern->id), $pattern->toArray());
-    //
-    //     $this->assertDatabaseHas('styleguide_patterns',['id'=> $pattern->id , 'title' => 'Updated Title']);
-    // }
 
 }
