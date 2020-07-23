@@ -30,8 +30,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Xpersonas\\Styleguide\\Providers\\StyleguideServiceProvider",
-                "Spatie\\Permission\\PermissionServiceProvider::class"
+                "Xpersonas\\Styleguide\\Providers\\StyleguideServiceProvider"
             ]
         },
         "npm-bridge": {
