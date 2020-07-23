@@ -5,17 +5,17 @@ This package allows admins to create a custom styleguide for Laravel project dev
 **Basic Elements**  
 Choose from a list of basic elements like headings, text, tables, etc.. 
 
-![sg-main](https://user-images.githubusercontent.com/5023924/88302826-ecb60280-cccb-11ea-901e-ab99db2eb5fa.jpg)
+![svg-main-x](https://user-images.githubusercontent.com/5023924/88303382-96958f00-cccc-11ea-8a8a-5b86f75fb556.jpg)
 
 **Colors**  
 Provide a list of colors with class name, description, and hex value.
 
-![sg-colors](https://user-images.githubusercontent.com/5023924/88302830-ed4e9900-cccb-11ea-88a9-c4606db6ed87.jpg)
+![sg-colors-x](https://user-images.githubusercontent.com/5023924/88303381-96958f00-cccc-11ea-9bca-c42a90494b22.jpg)
 
 **Custom Patterns**  
 Admins can also create custom patterns with a built in codemirror textarea. 
 
-![sg-pattern](https://user-images.githubusercontent.com/5023924/88302835-ede72f80-cccb-11ea-9c01-aabf6f6bcaac.jpg)
+![sg-pattern-x](https://user-images.githubusercontent.com/5023924/88303380-95fcf880-cccc-11ea-9c65-05a2f0302329.jpg)
 
 ## Installation
 
