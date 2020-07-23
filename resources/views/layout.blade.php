@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('pageTitle', 'Xpersonas')</title>
+    <title>@yield('pageTitle', 'Styleguide Preview')</title>
 </head>
 <body class="simple-styleguide">
     @include('styleguide::navigation')
@@ -24,9 +24,9 @@
 
             .simple-styleguide-container {
                 width: 90%;
-                max-width: 1030px;
-                margin-left: auto;
-                margin-right: auto;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 40px;
             }
         </style>
     @show
