@@ -41,6 +41,22 @@ The styleguide comes with a limited stylesheet for layout. Include this only on 
 <link href="{{ asset('css/vendor/xpersonas/styleguide.css') }}" rel="stylesheet" type="text/css" />
 ```
 
+### Protecting Routes
+
+There are several CRUD-related pages that will need protection from anonymous users. Please use what ever authentication system you are using to ensure these pages are safe from the public.
+
+```
+// Route setup.
+Route::get('admin/styleguide/preview', '\Xpersonas\Styleguide\Http\Controllers\StyleguideController@index')->name('simple-styleguide');
+
+Route::resource('admin/styleguide/patterns','Xpersonas\Styleguide\Http\Controllers\StyleguidePatternController', ['names' => 'pattern'])->middleware(['web']);
+Route::resource('admin/styleguide/colors','Xpersonas\Styleguide\Http\Controllers\StyleguideColorController', ['names' => 'color'])->middleware(['web']);
+Route::resource('admin/styleguide/basics','Xpersonas\Styleguide\Http\Controllers\StyleguideBasicsController', ['names' => 'basics'])->middleware(['web']);
+
+// Wildcard route to protect.
+admin/styleguide/*
+```
+
 ## Author
 
 **[xpersonas](mailto:justin.neel@gmail.com)**
