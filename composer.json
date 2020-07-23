@@ -1,6 +1,6 @@
 {
     "name": "xpersonas/laravel-styleguide",
-    "description": "Simple styleguide for use with Laravel projects.",
+    "description": "Simple styleguide for use with Laravel projects utilizing Spatie.",
     "type": "project",
     "license": "GPL-3.0-or-later",
     "authors": [
