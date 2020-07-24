@@ -84,7 +84,6 @@ class StyleguidePatternController extends Controller
         StyleguidePattern::whereId($id)->update($validatedData);
 
         return redirect()->route('pattern.index')->with('success', 'Styleguide pattern is successfully updated.');
-
     }
 
     /**

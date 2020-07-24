@@ -96,7 +96,6 @@ class StyleguideColorController extends Controller
         StyleguideColor::whereId($id)->update($validatedData);
 
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully updated.');
-
     }
 
     /**
@@ -120,7 +119,8 @@ class StyleguideColorController extends Controller
      *
      * @return string
      */
-    public function formatHexValue($value) {
+    public function formatHexValue($value)
+    {
         if (!preg_match('/^#/', $value)) {
             return '#' . $value;
         }

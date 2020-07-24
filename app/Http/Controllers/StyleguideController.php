@@ -6,7 +6,8 @@ use Xpersonas\Styleguide\Http\Controllers\Controller;
 
 class StyleguideController extends Controller
 {
-    public function index() {
+    public function index()
+    {
         return view('styleguide::index');
     }
 }

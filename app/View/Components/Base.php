@@ -9,6 +9,7 @@ use Xpersonas\Styleguide\StyleguidePattern;
 
 class Base extends Component
 {
+
     /**
      * Create a new component instance.
      *
@@ -27,8 +28,7 @@ class Base extends Component
     public function render()
     {
         // Check to ensure migration has been run and tables exist.
-        if (
-            !\Schema::hasTable('styleguide_colors') ||
+        if (!\Schema::hasTable('styleguide_colors') ||
             !\Schema::hasTable('styleguide_patterns') ||
             !\Schema::hasTable('styleguide_basics')
         ) {
@@ -66,12 +66,15 @@ class Base extends Component
             $fillable = $basics->getFillable();
         }
 
-        return view('styleguide::components.base', compact('colors','patterns', 'basics'));
+        return view(
+            'styleguide::components.base',
+            compact('colors', 'patterns', 'basics')
+        );
     }
 
-    public function isDefaultComponentsEmpty($component) {
-        if (
-            !$component->headings &&
+    public function isDefaultComponentsEmpty($component)
+    {
+        if (!$component->headings &&
             !$component->text &&
             !$component->lists &&
             !$component->blockquote &&
@@ -92,23 +95,30 @@ class Base extends Component
      *
      * @return array|bool
      */
-    public function hex2rgb( $colour ) {
-        if ( $colour[0] == '#' ) {
-            $colour = substr( $colour, 1 );
+    public function hex2rgb($colour)
+    {
+        if ($colour[0] == '#') {
+            $colour = substr($colour, 1);
         }
 
-        if ( strlen( $colour ) == 6 ) {
-            [ $r, $g, $b ] = array( $colour[0] . $colour[1], $colour[2] . $colour[3], $colour[4] . $colour[5] );
-        } elseif ( strlen( $colour ) == 3 ) {
-            [ $r, $g, $b ] = array( $colour[0] . $colour[0], $colour[1] . $colour[1], $colour[2] . $colour[2] );
+        if (strlen($colour) == 6) {
+            [$r, $g, $b] = [
+                $colour[0].$colour[1], $colour[2].$colour[3],
+                $colour[4].$colour[5],
+            ];
+        } elseif (strlen($colour) == 3) {
+            [$r, $g, $b] = [
+                $colour[0].$colour[0], $colour[1].$colour[1],
+                $colour[2].$colour[2],
+            ];
         } else {
             return false;
         }
 
-        $r = hexdec( $r );
-        $g = hexdec( $g );
-        $b = hexdec( $b );
+        $r = hexdec($r);
+        $g = hexdec($g);
+        $b = hexdec($b);
 
-        return array( 'red' => $r, 'green' => $g, 'blue' => $b );
+        return ['red' => $r, 'green' => $g, 'blue' => $b];
     }
 }

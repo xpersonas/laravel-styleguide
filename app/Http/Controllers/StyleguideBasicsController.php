@@ -48,7 +48,7 @@ class StyleguideBasicsController extends Controller
         $input = $request->input('basics');
         $styleguideBasics = new StyleguideBasics();
 
-        foreach($input as $setting){
+        foreach ($input as $setting) {
             $styleguideBasics->$setting = 1;
         }
 
@@ -85,7 +85,7 @@ class StyleguideBasicsController extends Controller
         $fillable = $styleguideBasics->getFillable();
         $model = $styleguideBasics->find($id);
 
-        foreach($fillable as $value) {
+        foreach ($fillable as $value) {
             if (!empty($input) && in_array($value, $input)) {
                 $model->$value = 1;
             } else {
