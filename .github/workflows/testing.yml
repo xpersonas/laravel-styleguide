@@ -19,6 +19,10 @@ jobs:
       with:
         path: host/packages/xpersonas/laravel-styleguide
 
+    - name: Verify package location
+      working-directory: ./host
+      run: ls -la packages/xpersonas
+
     - name: Copy .env
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
