@@ -1,8 +1,9 @@
 ## Xpersonas Laravel Styleguide
 ![Laravel Styleguide Test](https://github.com/xpersonas/laravel-styleguide/workflows/Laravel%20Styleguide%20Test/badge.svg)
 [![GitHub release](https://img.shields.io/github/release/xpersonas/laravel-styleguide.svg)](https://gitHub.com/xpersonas/laravel-styleguide/releases/)
+[![Packagist release](https://img.shields.io/packagist/v/xpersonas/laravel-styleguide.svg)](//packagist.org/packages/xpersonas/laravel-styleguide)
 [![Total Downloads](https://poser.pugx.org/xpersonas/laravel-styleguide/downloads)](//packagist.org/packages/xpersonas/laravel-styleguide)
-[![License](https://poser.pugx.org/xpersonas/laravel-styleguide/license)](//packagist.org/packages/xpersonas/laravel-styleguide)
+[![License](https://poser.pugx.org/xpersonas/laravel-styleguide/license)](https://github.com/xpersonas/laravel-styleguide/blob/master/LICENSE.txt)
 
 This package allows admins to create a custom styleguide for Laravel project development. 
 
