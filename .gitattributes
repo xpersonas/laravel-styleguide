@@ -2,14 +2,16 @@
 # https://www.kernel.org/pub/software/scm/git/docs/gitattributes.html
 
 # Ignore all test and documentation with "export-ignore".
-/.gitattributes     export-ignore
-/.gitignore         export-ignore
-/phpunit.xml        export-ignore
-/tests              export-ignore
-#/mix-manifest.js    export-ignore
-#/webpack.mix.js     export-ignore
+.gitattributes     export-ignore
+.gitignore         export-ignore
+phpunit.xml        export-ignore
+tests              export-ignore
+#mix-manifest.js    export-ignore
+#webpack.mix.js     export-ignore
 
 *.css               linguist-detectable=false
 *.js                linguist-detectable=false
 *.scss              linguist-detectable=false
 *.html              linguist-detectable=false
+
+#*.blade.php         linguist-vendored
