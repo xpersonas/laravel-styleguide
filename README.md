@@ -1,6 +1,6 @@
 ## Xpersonas Laravel Styleguide
 ![Laravel Styleguide Test](https://github.com/xpersonas/laravel-styleguide/workflows/Laravel%20Styleguide%20Test/badge.svg)
-[![Latest Stable Version](https://poser.pugx.org/xpersonas/laravel-styleguide/v)](//packagist.org/packages/xpersonas/laravel-styleguide)
+[![GitHub release](https://img.shields.io/github/release/xpersonas/laravel-styleguide.svg)](https://gitHub.com/xpersonas/laravel-styleguide/releases/)
 [![Total Downloads](https://poser.pugx.org/xpersonas/laravel-styleguide/downloads)](//packagist.org/packages/xpersonas/laravel-styleguide)
 [![License](https://poser.pugx.org/xpersonas/laravel-styleguide/license)](//packagist.org/packages/xpersonas/laravel-styleguide)
 
