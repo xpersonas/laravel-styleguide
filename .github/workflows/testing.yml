@@ -31,6 +31,10 @@ jobs:
         mkdir -p database
         touch database/database.sqlite
 
+    - name: Install Dependencies
+      working-directory: ./host/packages/xpersonas/laravel-styleguide
+      run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
         DB_CONNECTION: sqlite
