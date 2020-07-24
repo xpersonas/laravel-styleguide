@@ -44,4 +44,4 @@ jobs:
 
     - name: PHPCS Code Quality
       working-directory: ./host/packages/xpersonas/laravel-styleguide
-      run: ./vendor/bin/phpcs --ignore=node_modules,vendor,tests,database,*.blade.php --standard=PSR2 --extensions=php
+      run: ./vendor/bin/phpcs --ignore=node_modules,vendor,tests,database,*.blade.php --standard=PSR2 --extensions=php .
