@@ -20,6 +20,7 @@
         }
     },
     "require": {
+        "php": ">=7.3",
         "eloquent/composer-npm-bridge": "^4.1"
     },
     "require-dev": {
