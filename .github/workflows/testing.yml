@@ -45,3 +45,12 @@ jobs:
     - name: PHPCS Code Quality
       working-directory: ./host/packages/xpersonas/laravel-styleguide
       run: ./vendor/bin/phpcs --ignore=node_modules,vendor,tests,database,*.blade.php --standard=PSR2 --extensions=php .
+
+    - uses: 8398a7/action-slack@v3
+      with:
+        status: ${{ job.status }}
+        fields: repo,message,commit,author,action,eventName,ref,workflow,job,took # selectable (default: repo,message)
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # optional
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+      if: always() # Pick up events even if the job fails or is canceled.
