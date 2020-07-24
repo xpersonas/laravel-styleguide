@@ -27,7 +27,9 @@ jobs:
       run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
     - name: Create Database
-      run: touch database/database.sqlite
+      run: |
+        mkdir -p database
+        touch database/database.sqlite
 
     - name: Execute tests (Unit and Feature tests) via PHPUnit
       env:
