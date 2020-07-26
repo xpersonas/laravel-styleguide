@@ -115,22 +115,22 @@ class XpersonasStyleguideFeaturesTest extends TestCase
      *
      * @return void
      */
-    public function testStyleguideBasicsCreation()
-    {
-        //Given we have article in the database
-        $exampleModel = factory(StyleguideBasics::class)->create();
-        $fieldOptions = $exampleModel->getFillable();
-
-        $basic = factory(StyleguideBasics::class)->create([
-            "$fieldOptions[0]" => true,
-        ]);
-
-        //When user visit the articles page
-        $response = $this->get(route('simple-styleguide')); // your route to get article
-
-        //He should be able to read the articles
-        $response->assertSee($fieldOptions[0]);
-    }
+    // public function testStyleguideBasicsCreation()
+    // {
+    //     //Given we have article in the database
+    //     $exampleModel = factory(StyleguideBasics::class)->create();
+    //     $fieldOptions = $exampleModel->getFillable();
+    //
+    //     $basic = factory(StyleguideBasics::class)->create([
+    //         "$fieldOptions[0]" => true,
+    //     ]);
+    //
+    //     //When user visit the articles page
+    //     $response = $this->get(route('simple-styleguide')); // your route to get article
+    //
+    //     //He should be able to read the articles
+    //     $response->assertSee($fieldOptions[0]);
+    // }
 
     /**
      * Test styleguide color store.
