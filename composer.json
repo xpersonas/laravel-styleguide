@@ -1,6 +1,6 @@
 {
     "name": "xpersonas/laravel-styleguide",
-    "description": "Simple styleguide for use with Laravel projects utilizing Spatie.",
+    "description": "Simple styleguide for use with Laravel projects. Quickly create a page of html elements and components to be styled with your front end stylesheets.",
     "keywords": ["laravel", "styleguide"],
     "type": "project",
     "license": "GPL-3.0-or-later",
