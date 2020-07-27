@@ -1,6 +1,6 @@
 ## Xpersonas Laravel Styleguide
 ![build](https://github.com/xpersonas/laravel-styleguide/workflows/build/badge.svg)
-[![Latest Stable Version](https://poser.pugx.org/xpersonas/laravel-styleguide/v)](//packagist.org/packages/xpersonas/laravel-styleguide)
+[![PHP version](https://badge.fury.io/ph/xpersonas%2Flaravel-styleguide.svg)](https://badge.fury.io/ph/xpersonas%2Flaravel-styleguide)
 [![Total Downloads](https://poser.pugx.org/xpersonas/laravel-styleguide/downloads)](//packagist.org/packages/xpersonas/laravel-styleguide)
 [![License](https://poser.pugx.org/xpersonas/laravel-styleguide/license)](https://github.com/xpersonas/laravel-styleguide/blob/master/LICENSE.txt)
 
