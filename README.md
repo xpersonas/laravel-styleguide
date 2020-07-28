@@ -3,6 +3,7 @@
 [![PHP version](https://badge.fury.io/ph/xpersonas%2Flaravel-styleguide.svg)](https://badge.fury.io/ph/xpersonas%2Flaravel-styleguide)
 [![Total Downloads](https://poser.pugx.org/xpersonas/laravel-styleguide/downloads)](//packagist.org/packages/xpersonas/laravel-styleguide)
 [![License](https://poser.pugx.org/xpersonas/laravel-styleguide/license)](https://github.com/xpersonas/laravel-styleguide/blob/master/LICENSE.txt)
+[![Maintainability](https://api.codeclimate.com/v1/badges/1285e02e470cea7d401d/maintainability)](https://codeclimate.com/github/xpersonas/laravel-styleguide/maintainability)
 
 This package allows admins to create a custom styleguide for Laravel project development. 
 
