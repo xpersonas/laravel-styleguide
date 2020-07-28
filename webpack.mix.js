@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
 
 mix.sourceMaps()
     .js('resources/js/styleguide.js', 'public/js')
-    .babel(['public/js/styleguide.js'], 'public/js/styleguide.es5.js')
+    .babel(['public/js/styleguide.js'], 'public/js/styleguide.js')
     .sass('resources/sass/styleguide.scss', 'public/css')
     .options({
         postCss: [
