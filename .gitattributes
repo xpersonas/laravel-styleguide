@@ -6,6 +6,7 @@
 .gitignore         export-ignore
 phpunit.xml        export-ignore
 tests              export-ignore
+reports            export-ignore
 #mix-manifest.js    export-ignore
 #webpack.mix.js     export-ignore
 

@@ -3,7 +3,6 @@
 namespace Xpersonas\Styleguide\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Xpersonas\Styleguide\StyleguideBasics;
 use Xpersonas\Styleguide\StyleguidePattern;
 use Xpersonas\Styleguide\StyleguideColor;
@@ -24,6 +23,8 @@ class XpersonasStyleguideFeaturesTest extends TestCase
      */
     public function testStyleguideRoutes()
     {
+        // $x = app('Illuminate\Routing\Router')->getRoutes();
+
         $response = $this->get('admin/styleguide/patterns');
         $response->assertStatus(200);
 
@@ -38,7 +39,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
     }
 
     /**
-     * Test styleguide preview page for default patterns section.
+     * Test that selected basic elements show up on styleguide preview.
      *
      * @return void
      */
@@ -51,7 +52,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
     }
 
     /**
-     * Test styleguide preview page for custom patterns section.
+     * Test that custom patterns show up on styleguide preview.
      *
      * @return void
      */
@@ -64,7 +65,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
     }
 
     /**
-     * Test styleguide preview page for colors section.
+     * Test that custom colors show up on styleguide preview.
      *
      * @return void
      */
@@ -74,92 +75,6 @@ class XpersonasStyleguideFeaturesTest extends TestCase
 
         $response = $this->get('admin/styleguide');
         $response->assertSee('styleguide colors');
-    }
-
-    /**
-     * Test styleguide pattern creation.
-     *
-     * @return void
-     */
-    public function testStyleguidePatternCreation()
-    {
-        //Given we have article in the database
-        $pattern = factory(StyleguidePattern::class)->create();
-
-        //When user visit the articles page
-        $response = $this->get(route('pattern.index')); // your route to get article
-
-        //He should be able to read the articles
-        $response->assertSee($pattern->title);
-    }
-
-    /**
-     * Test styleguide color creation.
-     *
-     * @return void
-     */
-    public function testStyleguideColorCreation()
-    {
-        //Given we have article in the database
-        $color = factory(StyleguideColor::class)->create();
-
-        //When user visit the articles page
-        $response = $this->get(route('color.index')); // your route to get article
-
-        //He should be able to read the articles
-        $response->assertSee($color->class);
-    }
-
-    /**
-     * Test styleguide basics settings.
-     *
-     * @return void
-     */
-    // public function testStyleguideBasicsCreation()
-    // {
-    //     //Given we have article in the database
-    //     $exampleModel = factory(StyleguideBasics::class)->create();
-    //     $fieldOptions = $exampleModel->getFillable();
-    //
-    //     $basic = factory(StyleguideBasics::class)->create([
-    //         "$fieldOptions[0]" => true,
-    //     ]);
-    //
-    //     //When user visit the articles page
-    //     $response = $this->get(route('simple-styleguide')); // your route to get article
-    //
-    //     //He should be able to read the articles
-    //     $response->assertSee($fieldOptions[0]);
-    // }
-
-    /**
-     * Test styleguide color store.
-     *
-     * @return void
-     */
-    public function testStyleguideAdminColorForm()
-    {
-        $color = factory(StyleguideColor::class)->make();
-
-        $this->post(route('color.store'), $color->toArray());
-
-        //It gets stored in the database
-        $this->assertEquals(1, StyleguideColor::all()->count());
-    }
-
-    /**
-     * Test styleguide pattern store.
-     *
-     * @return void
-     */
-    public function testStyleguideAdminPatternForm()
-    {
-        $pattern = factory(StyleguidePattern::class)->make();
-
-        $this->post(route('pattern.store'), $pattern->toArray());
-
-        //It gets stored in the database
-        $this->assertEquals(1, StyleguidePattern::all()->count());
     }
 
 }
