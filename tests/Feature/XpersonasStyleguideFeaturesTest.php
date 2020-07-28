@@ -23,8 +23,6 @@ class XpersonasStyleguideFeaturesTest extends TestCase
      */
     public function testStyleguideRoutes()
     {
-        // $x = app('Illuminate\Routing\Router')->getRoutes();
-
         $response = $this->get('admin/styleguide/patterns');
         $response->assertStatus(200);
 
