@@ -45,14 +45,9 @@ class StyleguideBasicsController extends Controller
      */
     public function store(Request $request)
     {
-        $input = $request->input('basics');
-        $styleguideBasics = new StyleguideBasics();
+        $basics = collect($request->input('basics'))->mapWithKeys(fn($value) => [$value => 1]);
 
-        foreach ($input as $setting) {
-            $styleguideBasics->$setting = 1;
-        }
-
-        $styleguideBasics->save();
+        StyleguideBasics::create($basics->toArray());
 
         return redirect()->route('basics.index')->with('success', 'Styleguide color is successfully saved.');
     }
