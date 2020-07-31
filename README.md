@@ -38,8 +38,10 @@ The styleguide provides a Laravel component that can be dropped in any of your t
 
 Add this to your template:
 ```
-<x-styleguide-styleguide />
+<x-styleguide-base />
 ```
+
+Edit your Styleguide settings by visiting `/simple-styleguide` on your site.
 
 ## Stylesheets
 
