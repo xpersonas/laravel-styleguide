@@ -45,7 +45,10 @@ class StyleguideBasicsController extends Controller
      */
     public function store(Request $request)
     {
-        $basics = collect($request->input('basics'))->mapWithKeys(fn($value) => [$value => 1]);
+        $basics = collect($request->input('basics'))
+            ->mapWithKeys(function($value) {
+                return [$value => 1];
+            });
 
         StyleguideBasics::create($basics->toArray());
 
