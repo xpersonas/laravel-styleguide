@@ -30,8 +30,8 @@
                     <textarea rows="5" columns="5" class="form-control" name="description">{{ $color->description }}</textarea>
                 </div>
                 <div class="form-group">
-                    <label for="symptoms">Hex:</label>
-                    <input type="text" class="form-control" name="hex" value="{{ $color->hex }}"/>
+                    <label for="symptoms">Color:</label>
+                    <input type="color" class="form-control" name="hex" value="{{ $color->hex }}"/>
                 </div>
                 <button type="submit" class="btn btn-primary">Update Color</button>
             </form>
