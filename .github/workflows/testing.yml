@@ -49,20 +49,20 @@ jobs:
     - name: Notify slack success
       if: success()
       env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       uses: voxmedia/github-action-slack-notify-build@v1
       with:
-        channel: app-alerts
+        channel: justin
         status: SUCCESS
         color: good
 
     - name: Notify slack fail
       if: failure()
       env:
-        SLACK_BOT_TOKEN: ${{ secrets.SLACK_WEBHOOK_URL }}
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
       uses: voxmedia/github-action-slack-notify-build@v1
       with:
-        channel: app-alerts
+        channel: justin
         status: FAILED
         color: danger
     - name: Slack Notify Build
