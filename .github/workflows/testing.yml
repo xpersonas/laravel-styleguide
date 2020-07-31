@@ -65,5 +65,3 @@ jobs:
         channel: '#laravel-styleguide'
         status: FAILED
         color: danger
-    - name: Slack Notify Build
-      uses: voxmedia/github-action-slack-notify-build@v1.1.2
