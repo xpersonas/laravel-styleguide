@@ -46,11 +46,24 @@ jobs:
       working-directory: ./host/packages/xpersonas/laravel-styleguide
       run: ./vendor/bin/phpcs --ignore=node_modules,vendor,tests,database,*.blade.php --standard=PSR2 --extensions=php .
 
-    - uses: 8398a7/action-slack@v3
-      with:
-        status: ${{ job.status }}
-        fields: repo,message,commit,author,action,eventName,ref,workflow,job,took # selectable (default: repo,message)
+    - name: Notify slack success
+      if: success()
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # optional
-        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
-      if: always() # Pick up events even if the job fails or is canceled.
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_WEBHOOK_URL }}
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        channel: app-alerts
+        status: SUCCESS
+        color: good
+
+    - name: Notify slack fail
+      if: failure()
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_WEBHOOK_URL }}
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        channel: app-alerts
+        status: FAILED
+        color: danger
+    - name: Slack Notify Build
+      uses: voxmedia/github-action-slack-notify-build@v1.1.2
