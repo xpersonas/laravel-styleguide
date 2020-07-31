@@ -32,8 +32,8 @@
                     <textarea rows="5" columns="5" class="form-control" name="description"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="symptoms">Hex:</label>
-                    <input type="text" class="form-control" name="hex"/>
+                    <label for="symptoms">Color:</label>
+                    <input type="color" class="form-control" name="hex"/>
                 </div>
                 <button type="submit" class="btn btn-primary">Add Color</button>
             </form>
