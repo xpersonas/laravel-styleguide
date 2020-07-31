@@ -2,10 +2,10 @@
 
 namespace Xpersonas\Styleguide\Http\Controllers;
 
-use Xpersonas\Styleguide\Http\Controllers\Controller;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Xpersonas\Styleguide\StyleguideColor;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
+use Xpersonas\Styleguide\Http\Controllers\Controller;
 
 class StyleguideColorController extends Controller
 {
@@ -33,18 +33,15 @@ class StyleguideColorController extends Controller
      */
     public function store(Request $request)
     {
-        $hexValue = $this->formatHexValue($request->get('hex'));
+        $request->hex = $this->formatHexValue($request->hex);
 
-        $request->merge([
-            'hex' => $hexValue,
-        ]);
-
-        $validatedData = $request->validate([
+        $request->validate([
             'class' => 'required|max:255',
             'description' => 'required',
             'hex' => 'required',
         ]);
-        $show = StyleguideColor::create($validatedData);
+
+        StyleguideColor::create($request->all());
 
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully saved.');
     }
@@ -52,13 +49,11 @@ class StyleguideColorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \Xpersonas\Styleguide\StyleguideColor\ $color
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function edit($id)
+    public function edit(StyleguideColor $color)
     {
-        $color = StyleguideColor::findOrFail($id);
-
         return view('styleguide::colors/edit', compact('color'));
     }
 
@@ -66,23 +61,20 @@ class StyleguideColorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Xpersonas\Styleguide\StyleguideColor\ $color
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, StyleguideColor $color)
     {
-        $hexValue = $this->formatHexValue($request->get('hex'));
+        $request->hex = $this->formatHexValue($request->hex);
 
-        $request->merge([
-            'hex' => $hexValue,
-        ]);
-
-        $validatedData = $request->validate([
+        $request->validate([
             'class' => 'required|max:255',
             'description' => 'required',
             'hex' => 'required',
         ]);
-        StyleguideColor::whereId($id)->update($validatedData);
+
+        $color->update($request->all());
 
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully updated.');
     }
@@ -90,12 +82,11 @@ class StyleguideColorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \Xpersonas\Styleguide\StyleguideColor\ $color
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy($id)
+    public function destroy(StyleguideColor $color)
     {
-        $color = StyleguideColor::findOrFail($id);
         $color->delete();
 
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully deleted.');
@@ -110,8 +101,8 @@ class StyleguideColorController extends Controller
      */
     public function formatHexValue($value)
     {
-        if (!preg_match('/^#/', $value)) {
-            return '#' . $value;
+        if (! Str::startsWith($value, '#')) {
+            return '#'. $value;
         }
 
         return $value;
