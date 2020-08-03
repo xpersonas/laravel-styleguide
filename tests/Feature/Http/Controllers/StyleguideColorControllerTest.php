@@ -25,11 +25,13 @@ class StyleguideColorControllerTest extends TestCase
     public function test_store()
     {
         $color = factory(StyleguideColor::class)->make();
-        $this->post(route('color.store'), $color->toArray());
+        $response = $this->post(route('color.store'), $color->toArray());
+        $response->assertSessionHasNoErrors();
         $this->assertEquals(1, StyleguideColor::all()->count());
 
         $color = factory(StyleguideColor::class)->create();
         $response = $this->get(route('color.index')); // your route to get
+        $response->assertSessionHasNoErrors();
         $response->assertSee($color->class);
     }
 
@@ -45,7 +47,8 @@ class StyleguideColorControllerTest extends TestCase
     {
         $color = factory(StyleguideColor::class)->create();
         $color->class = "Updated Title";
-        $this->put(route('color.update', $color->id), $color->toArray());
+        $response = $this->put(route('color.update', $color->id), $color->toArray());
+        $response->assertSessionHasNoErrors();
         $this->assertDatabaseHas('styleguide_colors',['id'=> $color->id , 'class' => 'Updated Title']);
     }
 
@@ -53,7 +56,25 @@ class StyleguideColorControllerTest extends TestCase
     {
         $color = factory(StyleguideColor::class)->create();
         $this->assertDatabaseHas('styleguide_colors', ['id'=> $color->id]);
-        $this->delete(route('color.destroy', $color->id), $color->toArray());
+        $response = $this->delete(route('color.destroy', $color->id), $color->toArray());
+        $response->assertSessionHasNoErrors();
         $this->assertDatabaseMissing('styleguide_colors', ['id'=> $color->id]);
+    }
+
+    public function test_hex_is_properly_formatted()
+    {
+        $color = factory(StyleguideColor::class)->make([
+            'hex' => "#FFFFFF"
+        ]);
+        $response = $this->post(route('color.store'), $color->toArray());
+        $response->assertSessionHasNoErrors();
+        $this->assertEquals('#FFFFFF', StyleguideColor::first()->hex);
+
+        $color = factory(StyleguideColor::class)->make([
+            'hex' => "FFFFFF"
+        ]);
+        $response = $this->post(route('color.store'), $color->toArray());
+        $response->assertSessionHasNoErrors();
+        $this->assertEquals('#FFFFFF', StyleguideColor::first()->hex);
     }
 }
