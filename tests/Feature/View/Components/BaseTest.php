@@ -7,7 +7,7 @@ use Xpersonas\Styleguide\StyleguideBasics;
 use Xpersonas\Styleguide\Tests\TestCase;
 use Xpersonas\Styleguide\View\Components\Base;
 
-class baseTest extends TestCase
+class BaseTest extends TestCase
 {
     use RefreshDatabase;
 

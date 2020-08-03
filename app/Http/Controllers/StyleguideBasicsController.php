@@ -5,16 +5,24 @@ namespace Xpersonas\Styleguide\Http\Controllers;
 use Xpersonas\Styleguide\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Xpersonas\Styleguide\StyleguideBasics;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class StyleguideBasicsController extends Controller
 {
+
+    /**
+     * Show settings.
+     *
+     * There should only be one model, but if for some reason more than one
+     * exists this will return the last one.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     */
     public function index()
     {
         $basics = StyleguideBasics::all();
 
         if (!$basics->isEmpty()) {
-            $id = $basics[0]->id;
+            $id = $basics->last()->id;
             return redirect()->route('basics.edit', $id)->with('success', 'Styleguide color is successfully saved.');
         } else {
             $styleguideBasics = new StyleguideBasics();
@@ -41,7 +49,7 @@ class StyleguideBasicsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -53,12 +61,12 @@ class StyleguideBasicsController extends Controller
         StyleguideBasics::create($basics->toArray());
 
         return redirect()->route('basics.index')->with('success', 'Styleguide color is successfully saved.');
+
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function edit($id)
@@ -74,24 +82,16 @@ class StyleguideBasicsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
-        $input = $request->input('basics');
-        $styleguideBasics = new StyleguideBasics();
-        $fillable = $styleguideBasics->getFillable();
-        $model = $styleguideBasics->find($id);
+        $basics = collect($request->input('basics'))
+            ->mapWithKeys(function($value) {
+                return [$value => 1];
+            });
 
-        foreach ($fillable as $value) {
-            if (!empty($input) && in_array($value, $input)) {
-                $model->$value = 1;
-            } else {
-                $model->$value = 0;
-            }
-        }
-
-        $model->save();
+        StyleguideBasics::updateOrCreate(['id' => $id], $basics->toArray());
 
         return redirect()->route('basics.edit', $id)->with('success', 'Styleguide color is successfully updated.');
     }

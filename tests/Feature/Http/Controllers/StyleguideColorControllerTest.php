@@ -76,5 +76,12 @@ class StyleguideColorControllerTest extends TestCase
         $response = $this->post(route('color.store'), $color->toArray());
         $response->assertSessionHasNoErrors();
         $this->assertEquals('#FFFFFF', StyleguideColor::first()->hex);
+
+        // $color = factory(StyleguideColor::class)->make([
+        //     'hex' => "none"
+        // ]);
+        // $response = $this->post(route('color.store'), $color->toArray());
+        // $response->assertSessionHasNoErrors();
+        // $this->assertEquals('none', StyleguideColor::first()->hex);
     }
 }

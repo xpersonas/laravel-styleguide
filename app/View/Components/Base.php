@@ -112,7 +112,7 @@ class Base extends Component
                 $colour[2].$colour[2],
             ];
         } else {
-            return false;
+            return [];
         }
 
         $r = hexdec($r);

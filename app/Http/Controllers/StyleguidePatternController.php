@@ -2,10 +2,9 @@
 
 namespace Xpersonas\Styleguide\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Xpersonas\Styleguide\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Xpersonas\Styleguide\StyleguidePattern;
-use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class StyleguidePatternController extends Controller
 {
@@ -38,7 +37,8 @@ class StyleguidePatternController extends Controller
             'description' => 'required',
             'pattern' => 'required',
         ]);
-        $show = StyleguidePattern::create($validatedData);
+
+        StyleguidePattern::create($validatedData);
 
         return redirect()->route('pattern.index')->with('success', 'Styleguide pattern is successfully saved.');
     }
@@ -46,13 +46,10 @@ class StyleguidePatternController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function edit($id)
+    public function edit(StyleguidePattern $pattern)
     {
-        $pattern = StyleguidePattern::findOrFail($id);
-
         return view('styleguide::patterns/edit', compact('pattern'));
     }
 
@@ -70,7 +67,8 @@ class StyleguidePatternController extends Controller
             'description' => 'required',
             'pattern' => 'required',
         ]);
-        StyleguidePattern::whereId($id)->update($validatedData);
+
+        StyleguidePattern::updateOrCreate(['id' => $id], $validatedData);
 
         return redirect()->route('pattern.index')->with('success', 'Styleguide pattern is successfully updated.');
     }
@@ -78,12 +76,10 @@ class StyleguidePatternController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function destroy($id)
+    public function destroy(StyleguidePattern $pattern)
     {
-        $pattern = StyleguidePattern::findOrFail($id);
         $pattern->delete();
 
         return redirect()->route('pattern.index')->with('success', 'Styleguide pattern is successfully deleted.');

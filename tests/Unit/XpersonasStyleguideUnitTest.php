@@ -18,12 +18,12 @@ class XpersonasStyleguideUnitTest extends TestCase
     public function testHexValueConversion()
     {
         $controller = new StyleguideColorController();
-        $hexValue = $controller->formatHexValue('sdfsd');
+        $hexValue = $controller->formatHexValue('asdfsd');
 
         $this->assertMatchesRegularExpression('/^#/', $hexValue);
     }
 
-    public function test_hex2rgb()
+    public function testHexToRgb()
     {
         $base = new Base();
         $hexValue = $base->hex2rgb('fff');
@@ -32,7 +32,7 @@ class XpersonasStyleguideUnitTest extends TestCase
         $this->assertArrayHasKey('blue', $hexValue);
 
         $hexValue = $base->hex2rgb('ffff');
-        $this->assertFalse($hexValue);
+        $this->assertEmpty($hexValue);
 
     }
 }

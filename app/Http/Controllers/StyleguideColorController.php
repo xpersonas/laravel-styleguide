@@ -2,13 +2,19 @@
 
 namespace Xpersonas\Styleguide\Http\Controllers;
 
+use Xpersonas\Styleguide\Http\Controllers\Controller;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Xpersonas\Styleguide\StyleguideColor;
-use Xpersonas\Styleguide\Http\Controllers\Controller;
 
 class StyleguideColorController extends Controller
 {
+
+    /**
+     * List all colors.
+     *
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function index()
     {
         $colors = StyleguideColor::all();
@@ -49,7 +55,7 @@ class StyleguideColorController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \Xpersonas\Styleguide\StyleguideColor\ $color
+     * @param  \Xpersonas\Styleguide\StyleguideColor $color
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function edit(StyleguideColor $color)
@@ -61,10 +67,10 @@ class StyleguideColorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Xpersonas\Styleguide\StyleguideColor\ $color
+     * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, StyleguideColor $color)
+    public function update(Request $request, $id)
     {
         $request->hex = $this->formatHexValue($request->hex);
 
@@ -74,7 +80,7 @@ class StyleguideColorController extends Controller
             'hex' => 'required',
         ]);
 
-        $color->update($request->all());
+        StyleguideColor::updateOrCreate(['id' => $id], $request->all());
 
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully updated.');
     }
@@ -82,13 +88,12 @@ class StyleguideColorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \Xpersonas\Styleguide\StyleguideColor\ $color
+     * @param  \Xpersonas\Styleguide\StyleguideColor $color
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy(StyleguideColor $color)
     {
         $color->delete();
-
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully deleted.');
     }
 
