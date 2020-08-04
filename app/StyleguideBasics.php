@@ -23,5 +23,4 @@ class StyleguideBasics extends Model
         'forms',
         'buttons',
     ];
-
 }
