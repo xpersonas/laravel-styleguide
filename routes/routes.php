@@ -26,8 +26,6 @@ Route::prefix('admin/styleguide')->group(function () {
         ['names' => 'pattern']
     )->middleware(['web']);
 
-    Route::get('colors', function () { dd('here'); });
-
     Route::resource(
         'colors',
         'Xpersonas\Styleguide\Http\Controllers\StyleguideColorController',
