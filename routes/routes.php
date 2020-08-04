@@ -19,20 +19,24 @@ Route::get(
 |--------------------------------------------------------------------------
 |
 */
-Route::resource(
-    'admin/styleguide/patterns',
-    'Xpersonas\Styleguide\Http\Controllers\StyleguidePatternController',
-    ['names' => 'pattern']
-)->middleware(['web']);
+Route::prefix('admin/styleguide')->group(function () {
+    Route::resource(
+        'patterns',
+        'Xpersonas\Styleguide\Http\Controllers\StyleguidePatternController',
+        ['names' => 'pattern']
+    )->middleware(['web']);
 
-Route::resource(
-    'admin/styleguide/colors',
-    'Xpersonas\Styleguide\Http\Controllers\StyleguideColorController',
-    ['names' => 'color']
-)->middleware(['web']);
+    Route::get('colors', function () { dd('here'); });
 
-Route::resource(
-    'admin/styleguide/basics',
-    'Xpersonas\Styleguide\Http\Controllers\StyleguideBasicsController',
-    ['names' => 'basics']
-)->middleware(['web']);
+    Route::resource(
+        'colors',
+        'Xpersonas\Styleguide\Http\Controllers\StyleguideColorController',
+        ['names' => 'color']
+    )->middleware(['web']);
+
+    Route::resource(
+        'basics',
+        'Xpersonas\Styleguide\Http\Controllers\StyleguideBasicsController',
+        ['names' => 'basics']
+    )->middleware(['web']);
+});
