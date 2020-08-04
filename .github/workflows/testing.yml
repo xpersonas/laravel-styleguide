@@ -45,3 +45,23 @@ jobs:
     - name: PHPCS Code Quality
       working-directory: ./host/packages/xpersonas/laravel-styleguide
       run: ./vendor/bin/phpcs --ignore=node_modules,vendor,tests,database,*.blade.php --standard=PSR2 --extensions=php .
+
+    - name: Notify slack success
+      if: success()
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        channel: '#laravel-styleguide'
+        status: SUCCESS
+        color: good
+
+    - name: Notify slack fail
+      if: failure()
+      env:
+        SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      uses: voxmedia/github-action-slack-notify-build@v1
+      with:
+        channel: '#laravel-styleguide'
+        status: FAILED
+        color: danger
