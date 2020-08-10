@@ -17,7 +17,7 @@ class CreateStyleguidePatternsTable extends Migration
             $table->id();
             $table->string('title');
             $table->longText('description');
-            $table->string('pattern');
+            $table->longText('pattern');
             $table->timestamps();
         });
     }
