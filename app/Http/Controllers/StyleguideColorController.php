@@ -39,7 +39,7 @@ class StyleguideColorController extends Controller
      */
     public function store(Request $request)
     {
-        $request->hex = $this->formatHexValue($request->hex);
+        $request->merge(['hex' => $this->formatHexValue($request->hex)]);
 
         $request->validate([
             'class' => 'required|max:255',
@@ -72,7 +72,7 @@ class StyleguideColorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->hex = $this->formatHexValue($request->hex);
+        $request->merge(['hex' => $this->formatHexValue($request->hex)]);
 
         $request->validate([
             'class' => 'required|max:255',
