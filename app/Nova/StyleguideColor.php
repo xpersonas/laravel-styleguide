@@ -8,7 +8,6 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use App\Nova\Resource;
-use Xpersonas\Hexfield\Hexfield;
 
 class StyleguideColor extends Resource
 {
@@ -59,7 +58,6 @@ class StyleguideColor extends Resource
             Text::make('Color', function () {
                 return "<span style='border-bottom: 6px solid {$this->hex};'>{$this->hex}</span>";
             })->asHtml(),
-            // Hexfield::make('hex'),
         ];
     }
 
