@@ -67,6 +67,42 @@ Route::resource('admin/styleguide/basics','Xpersonas\Styleguide\Http\Controllers
 admin/styleguide/*
 ```
 
+### Nova Ready ###
+https://nova.laravel.com
+
+This package is Nova-ready. If you want to manage styleguide settings, patterns, and colors within the Nova CMS see instructions below.
+
+Modify your Nova service provider.
+```
+// app/Providers/NovaServiceProvider.php
+
+use Xpersonas\Styleguide\Nova\StyleguideBasics;
+use Xpersonas\Styleguide\Nova\StyleguideColor;
+use Xpersonas\Styleguide\Nova\StyleguidePattern;
+```
+
+Then add the resource() method with the following resources:
+
+```
+// app/Providers/NovaServiceProvider.php
+
+/**
+ * Register the application's Nova resources.
+ *
+ * @return void
+ */
+protected function resources()
+{
+    Nova::resourcesIn(app_path('Nova'));
+
+    Nova::resources([
+        StyleguideBasics::class,
+        StyleguidePattern::class,
+        StyleguideColor::class,
+    ]);
+}
+```
+
 ## Contribute
 
 https://github.com/xpersonas/laravel-styleguide/pulls
