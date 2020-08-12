@@ -51,9 +51,11 @@ class StyleguidePattern extends Resource
     {
         return [
             ID::make()->sortable(),
-            Date::make('CREATED', 'created_at')->sortable()->format('MMMM DD'),
+            Date::make('CREATED', 'created_at')->sortable()->format('MMMM DD')
+                ->exceptOnForms(),
             Text::make('title')->sortable(),
             Textarea::make('description')->showOnIndex(),
+            Textarea::make('pattern')->showOnIndex(),
         ];
     }
 

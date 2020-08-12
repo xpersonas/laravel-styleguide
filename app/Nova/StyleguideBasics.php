@@ -52,6 +52,12 @@ class StyleguideBasics extends Resource
 
     public static function authorizedToCreate(Request $request)
     {
+        $basics = \Xpersonas\Styleguide\StyleguideBasics::all();
+
+        if ($basics->isEmpty()) {
+            return true;
+        }
+
         return false;
     }
 
@@ -70,7 +76,9 @@ class StyleguideBasics extends Resource
     {
         return [
             ID::make(),
-            Date::make('CREATED', 'created_at')->format('MMMM DD'),
+            Date::make('CREATED', 'created_at')
+                ->format('MMMM DD')
+                ->exceptOnForms(),
             Boolean::make('headings'),
             Boolean::make('text'),
             Boolean::make('lists'),
