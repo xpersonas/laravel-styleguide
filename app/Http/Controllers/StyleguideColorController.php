@@ -3,8 +3,8 @@
 namespace Xpersonas\Styleguide\Http\Controllers;
 
 use Xpersonas\Styleguide\Http\Controllers\Controller;
-use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Xpersonas\Styleguide\Http\Requests\StyleguideColorPost;
 use Xpersonas\Styleguide\StyleguideColor;
 
 class StyleguideColorController extends Controller
@@ -34,21 +34,13 @@ class StyleguideColorController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @param  \Xpersonas\Styleguide\Http\Requests\StyleguideColorPost  $request
+     *
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(Request $request)
+    public function store(StyleguideColorPost $request)
     {
-        $request->merge(['hex' => $this->formatHexValue($request->hex)]);
-
-        $request->validate([
-            'class' => 'required|max:255',
-            'description' => 'required',
-            'hex' => 'required',
-        ]);
-
         StyleguideColor::create($request->all());
-
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully saved.');
     }
 
@@ -66,22 +58,13 @@ class StyleguideColorController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Xpersonas\Styleguide\Http\Requests\StyleguideColorPost  $request
      * @param $id
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(StyleguideColorPost $request, $id)
     {
-        $request->merge(['hex' => $this->formatHexValue($request->hex)]);
-
-        $request->validate([
-            'class' => 'required|max:255',
-            'description' => 'required',
-            'hex' => 'required',
-        ]);
-
         StyleguideColor::updateOrCreate(['id' => $id], $request->all());
-
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully updated.');
     }
 
@@ -95,21 +78,5 @@ class StyleguideColorController extends Controller
     {
         $color->delete();
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully deleted.');
-    }
-
-    /**
-     * Add pound sign to beginning of string if not present already.
-     *
-     * @param $value
-     *
-     * @return string
-     */
-    public function formatHexValue($value)
-    {
-        if (! Str::startsWith($value, '#')) {
-            return '#'. $value;
-        }
-
-        return $value;
     }
 }

@@ -8,9 +8,6 @@
     </style>
     <h1>Add Custom Pattern</h1>
     <div class="card uper">
-        <div class="card-header">
-            Add a custom pattern to your styleguide.
-        </div>
         <div class="card-body">
             @if ($errors->any())
                 <div class="alert alert-danger">

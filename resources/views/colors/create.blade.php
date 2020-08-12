@@ -8,9 +8,6 @@
     </style>
     <h1>Add Color</h1>
     <div class="card uper">
-        <div class="card-header">
-            Add a custom color to your styleguide.
-        </div>
         <div class="card-body">
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -25,15 +22,15 @@
                 <div class="form-group">
                     @csrf
                     <label for="country_name">Class:</label>
-                    <input type="text" class="form-control" name="class"/>
+                    <input type="text" class="form-control" name="class" value="{{ old('class') }}"/>
                 </div>
                 <div class="form-group">
                     <label for="symptoms">Description:</label>
-                    <textarea rows="5" columns="5" class="form-control" name="description"></textarea>
+                    <textarea rows="5" columns="5" class="form-control" name="description">{{ old('description') }}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="symptoms">Hex:</label>
-                    <input type="text" class="form-control" name="hex"/>
+                    <input type="text" class="form-control" name="hex" value="{{ old('hex') }}" />
                 </div>
                 <button type="submit" class="btn btn-primary">Add Color</button>
             </form>

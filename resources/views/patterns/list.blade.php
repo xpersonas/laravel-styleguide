@@ -22,20 +22,20 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <td>ID</td>
-                <td>Title</td>
-                <td>Description</td>
-                <td colspan="2">Action</td>
+                <td class="align-middle">ID</td>
+                <td class="align-middle">Title</td>
+                <td class="align-middle">Description</td>
+                <td class="align-middle" colspan="2">Action</td>
             </tr>
             </thead>
             <tbody>
             @foreach($patterns as $pattern)
                 <tr>
-                    <td>{{$pattern->id}}</td>
-                    <td>{{$pattern->title}}</td>
-                    <td>{{$pattern->description}}</td>
-                    <td><a href="{{ route('pattern.edit', $pattern->id)}}" class="btn btn-primary">Edit</a></td>
-                    <td>
+                    <td class="align-middle">{{$pattern->id}}</td>
+                    <td class="align-middle">{{$pattern->title}}</td>
+                    <td class="align-middle">{{$pattern->description}}</td>
+                    <td class="align-middle"><a href="{{ route('pattern.edit', $pattern->id)}}" class="btn btn-primary">Edit</a></td>
+                    <td class="align-middle">
                         <form action="{{ route('pattern.destroy', $pattern->id)}}" method="post">
                             @csrf
                             @method('DELETE')

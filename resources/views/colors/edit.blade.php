@@ -33,6 +33,9 @@
                     <label for="symptoms">Hex:</label>
                     <input type="text" class="form-control" name="hex" value="{{ $color->hex }}"/>
                 </div>
+                <div class="form-group">
+                    <div style="width: 100%; height: 20px; background-color: {{ $color->hex }}"></div>
+                </div>
                 <button type="submit" class="btn btn-primary">Update Color</button>
             </form>
         </div>

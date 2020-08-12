@@ -9,7 +9,7 @@
     <h1>Edit Basic Settings</h1>
     <div class="card uper">
         <div class="card-header">
-            Edit Styleguide Basic Settings
+            Styleguide Basic Settings
         </div>
         <div class="card-body">
             @if ($errors->any())
@@ -41,7 +41,7 @@
                         @endforeach
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Update Basic</button>
+                    <button type="submit" class="btn btn-primary">Update Settings</button>
                 </form>
             @else
                 <form method="post" action="{{ route('basics.store') }}">
