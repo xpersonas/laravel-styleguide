@@ -27,5 +27,4 @@ class StyleguideColorObserver
 
         return $value;
     }
-
 }

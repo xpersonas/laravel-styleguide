@@ -79,5 +79,4 @@ class StyleguideColorController extends Controller
         $color->delete();
         return redirect()->route('color.index')->with('success', 'Styleguide color is successfully deleted.');
     }
-
 }

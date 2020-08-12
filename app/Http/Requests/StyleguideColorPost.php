@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StyleguideColorPost extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,7 +27,7 @@ class StyleguideColorPost extends FormRequest
         return [
             'class' => 'required|max:255',
             'description' => 'required',
-            'hex' => 'regex:/^#?([0-9a-fA-F]{3}){1,2}$/i'
+            'hex' => 'regex:/^#?([0-9a-fA-F]{3}){1,2}$/i',
         ];
     }
 
@@ -38,7 +39,8 @@ class StyleguideColorPost extends FormRequest
     public function messages()
     {
         return [
-            'hex.regex' => 'Invalid hexadecimal color. Please enter the 3 or 6 character code. Hashtag is optional and not required.',
+            'hex.regex' => 'Invalid hexadecimal color. Please enter the 3 or 6
+            character code. Hashtag is optional and not required.',
         ];
     }
 }
