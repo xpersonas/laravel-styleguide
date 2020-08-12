@@ -3,7 +3,7 @@
 namespace Xpersonas\Styleguide\Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Xpersonas\Styleguide\Http\Controllers\StyleguideColorController;
+use Xpersonas\Styleguide\Observers\StyleguideColorObserver;
 use Xpersonas\Styleguide\View\Components\Base;
 
 class XpersonasStyleguideUnitTest extends TestCase
@@ -17,12 +17,19 @@ class XpersonasStyleguideUnitTest extends TestCase
      */
     public function testHexValueConversion()
     {
-        $controller = new StyleguideColorController();
-        $hexValue = $controller->formatHexValue('asdfsd');
+        $oberver = new StyleguideColorObserver();
+        $hexValue = $oberver->formatHexValue('asdfsd');
 
         $this->assertMatchesRegularExpression('/^#/', $hexValue);
     }
 
+    /**
+     * Test RGB converstion.
+     *
+     * Test that hex value has converted into an RGB array.
+     *
+     * @return void
+     */
     public function testHexToRgb()
     {
         $base = new Base();
