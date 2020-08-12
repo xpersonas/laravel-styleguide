@@ -75,10 +75,11 @@ class StyleguideBasics extends Resource
     public function fields(Request $request)
     {
         return [
-            ID::make(),
-            Date::make('CREATED', 'created_at')
-                ->format('MMMM DD')
-                ->exceptOnForms(),
+            ID::make()
+                ->hideFromIndex()
+                ->hideFromDetail()
+                ->hideWhenCreating()
+                ->hideWhenUpdating(),
             Boolean::make('headings'),
             Boolean::make('text'),
             Boolean::make('lists'),

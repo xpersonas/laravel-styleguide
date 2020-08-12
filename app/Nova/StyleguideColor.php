@@ -8,6 +8,7 @@ use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use App\Nova\Resource;
+use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class StyleguideColor extends Resource
@@ -58,18 +59,9 @@ class StyleguideColor extends Resource
                 ->exceptOnForms(),
             Text::make('class')
                 ->sortable(),
-            Textarea::make('description')
-                ->showOnIndex(),
+            Trix::make('description')->hideFromIndex()->alwaysShow(),
             Text::make('Color', 'hex')
                 ->rules('required', 'regex:/^#?([0-9a-fA-F]{3}){1,2}$/i'),
-            Text::make('Color', function () {
-                return "<span style='border-bottom: 6px solid {$this->hex};'>{$this->hex}</span>";
-            })
-                ->asHtml()
-                ->rules('required', 'regex:/^#?([0-9a-fA-F]{3}){1,2}$/i')
-                ->hideWhenCreating()
-                ->hideWhenUpdating()
-                ->hideFromDetail(),
         ];
     }
 
@@ -79,7 +71,19 @@ class StyleguideColor extends Resource
             Date::make('Created', 'created_at')
                 ->format('MMMM DD'),
             Text::make('Class', 'class'),
-            Textarea::make('Description', 'description')->alwaysShow(),
+            Trix::make('Description', 'description')->alwaysShow(),
+            Text::make('Color', function () {
+                return "<span style='border-bottom: 6px solid {$this->hex};'>{$this->hex}</span>";
+            })->asHtml()
+        ];
+    }
+
+    public function fieldsForIndex(NovaRequest $request)
+    {
+        return [
+            Date::make('Created', 'created_at')
+                ->format('MMMM DD'),
+            Text::make('Class', 'class'),
             Text::make('Color', function () {
                 return "<span style='border-bottom: 6px solid {$this->hex};'>{$this->hex}</span>";
             })->asHtml()
