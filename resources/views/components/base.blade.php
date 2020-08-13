@@ -69,7 +69,7 @@
                         <div class="simple-styleguide--color--swatch">
                             <span class="simple-styleguide--color--swatch--class"><label>class:</label> {{$color['class']}}</span>
                             <span class="simple-styleguide--color--swatch--values"><label>values:</label> {{$color['hex']}} | rgb({{$color['rgb']}})</span>
-                            <span class="simple-styleguide--color--swatch--usage"><label>usage:</label> {{$color['description']}}</span>
+                            <span class="simple-styleguide--color--swatch--usage">{!! $color['description'] !!}</span>
                         </div>
                     </div>
                 @endforeach
@@ -869,7 +869,7 @@
             @foreach($patterns as $pattern)
                 <a name="pattern--{{$pattern['id']}}"></a>
                 <h3 class="simple-styleguide--sectionhead">{{$pattern['title']}}</h3>
-                <p>{{$pattern['description']}}</p>
+                <p>{!! $pattern['description'] !!}</p>
                 <div class="simple-styleguide">
                     <pre>{!! e($pattern['pattern']) !!}</pre>
                 </div>

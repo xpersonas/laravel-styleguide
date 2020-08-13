@@ -33,7 +33,7 @@
                 <tr>
                     <td class="align-middle">{{$pattern->id}}</td>
                     <td class="align-middle">{{$pattern->title}}</td>
-                    <td class="align-middle">{{$pattern->description}}</td>
+                    <td class="align-middle">{!! $pattern->description !!}</td>
                     <td class="align-middle"><a href="{{ route('pattern.edit', $pattern->id)}}" class="btn btn-primary">Edit</a></td>
                     <td class="align-middle">
                         <form action="{{ route('pattern.destroy', $pattern->id)}}" method="post">

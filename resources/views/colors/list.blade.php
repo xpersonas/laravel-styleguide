@@ -35,7 +35,7 @@
                 <tr>
                     <td class="align-middle">{{$color->id}}</td>
                     <td class="align-middle">{{$color->class}}</td>
-                    <td class="align-middle">{{$color->description}}</td>
+                    <td class="align-middle">{!! $color->description !!}</td>
                     <td class="align-middle">{{$color->hex}}</td>
                     <td class="align-middle"><span style="display: block; background: {{$color->hex}}; width: 100%;">&nbsp;</span></td>
                     <td class="align-middle"><a href="{{ route('color.edit', $color->id)}}" class="btn btn-primary">Edit</a></td>
