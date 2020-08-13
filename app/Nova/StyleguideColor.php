@@ -10,6 +10,7 @@ use Laravel\Nova\Fields\Textarea;
 use App\Nova\Resource;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Timothyasp\Color\Color;
 
 class StyleguideColor extends Resource
 {
@@ -60,7 +61,7 @@ class StyleguideColor extends Resource
             Text::make('class')
                 ->sortable(),
             Trix::make('description')->hideFromIndex()->alwaysShow(),
-            Text::make('Color', 'hex')
+            Color::make('Color', 'hex')
                 ->rules('required', 'regex:/^#?([0-9a-fA-F]{3}){1,2}$/i'),
         ];
     }

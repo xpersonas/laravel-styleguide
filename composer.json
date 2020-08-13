@@ -22,7 +22,8 @@
     },
     "require": {
         "php": ">=7.3",
-        "eloquent/composer-npm-bridge": "^4.1"
+        "eloquent/composer-npm-bridge": "^4.1",
+        "timothyasp/nova-color-field": "^1.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.2",
