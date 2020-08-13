@@ -65,7 +65,7 @@ class StyleguideColor extends Resource
 
     public function getColorField() {
         if (class_exists('\Timothyasp\Color\Color')) {
-            $colorField = Color::make('Color', 'hex');
+            $colorField = \Timothyasp\Color\Color::make('Color', 'hex');
         }
         else {
             $colorField = Text::make('Color', 'hex');
