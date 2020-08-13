@@ -6,11 +6,9 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Date;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Textarea;
 use App\Nova\Resource;
 use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
-use Timothyasp\Color\Color;
 
 class StyleguideColor extends Resource
 {
@@ -61,9 +59,19 @@ class StyleguideColor extends Resource
             Text::make('class')
                 ->sortable(),
             Trix::make('description')->hideFromIndex()->alwaysShow(),
-            Color::make('Color', 'hex')
-                ->rules('required', 'regex:/^#?([0-9a-fA-F]{3}){1,2}$/i'),
+            $this->getColorField()->rules('required', 'regex:/^#?([0-9a-fA-F]{3}){1,2}$/i')
         ];
+    }
+
+    public function getColorField() {
+        if (class_exists('\Timothyasp\Color\Color')) {
+            $colorField = Color::make('Color', 'hex');
+        }
+        else {
+            $colorField = Text::make('Color', 'hex');
+        }
+
+        return $colorField;
     }
 
     public function fieldsForDetail(NovaRequest $request)
