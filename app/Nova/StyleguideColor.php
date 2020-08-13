@@ -63,17 +63,32 @@ class StyleguideColor extends Resource
         ];
     }
 
-    public function getColorField() {
+    /**
+     * Check for Color class.
+     *
+     * If Timothyasp\Color\Color exists, return Color field.
+     * Otherwise return plain textfield.
+     *
+     * @return \Laravel\Nova\Fields\Text
+     */
+    public function getColorField()
+    {
         if (class_exists('\Timothyasp\Color\Color')) {
             $colorField = \Timothyasp\Color\Color::make('Color', 'hex');
-        }
-        else {
+        } else {
             $colorField = Text::make('Color', 'hex');
         }
 
         return $colorField;
     }
 
+    /**
+     * Customizations for color detail page.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     *
+     * @return array
+     */
     public function fieldsForDetail(NovaRequest $request)
     {
         return [
@@ -87,6 +102,13 @@ class StyleguideColor extends Resource
         ];
     }
 
+    /**
+     * Customizations for the color index page.
+     *
+     * @param  \Laravel\Nova\Http\Requests\NovaRequest  $request
+     *
+     * @return array
+     */
     public function fieldsForIndex(NovaRequest $request)
     {
         return [
