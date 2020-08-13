@@ -72,6 +72,8 @@ https://nova.laravel.com
 
 This package is Nova-ready. If you want to manage styleguide settings, patterns, and colors within a "beautifully designed administration panel" then follow the instructions below.
 
+<img width="1259" alt="Screen Shot 2020-08-13 at 12 29 12 PM" src="https://user-images.githubusercontent.com/5023924/90166943-9b47e300-dd60-11ea-90b1-7f8a8b1f5afe.png">
+
 ### Installation
 
 Modify your Nova service provider.
