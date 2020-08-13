@@ -29,6 +29,9 @@
         "orchestra/testbench": "^5.3",
         "squizlabs/php_codesniffer": "*"
     },
+    "suggest": {
+        "timothyasp/nova-color-field":"If using Nova, consider using this color picker."
+    },
     "extra": {
         "laravel": {
             "providers": [

@@ -1,4 +1,4 @@
-## Laravel Styleguide
+# Laravel Styleguide
 ![build](https://github.com/xpersonas/laravel-styleguide/workflows/build/badge.svg)
 [![PHP version](https://badge.fury.io/ph/xpersonas%2Flaravel-styleguide.svg)](https://badge.fury.io/ph/xpersonas%2Flaravel-styleguide)
 [![Total Downloads](https://poser.pugx.org/xpersonas/laravel-styleguide/downloads)](//packagist.org/packages/xpersonas/laravel-styleguide)
@@ -51,7 +51,7 @@ The styleguide comes with a limited stylesheet for layout purposes. Include this
 <link href="{{ asset('css/vendor/xpersonas/styleguide.css') }}" rel="stylesheet" type="text/css" />
 ```
 
-### Protecting Routes
+## Protecting Routes
 
 There are several CRUD-related pages that will need protection from anonymous users. Please use what ever authentication system you are using to ensure these pages are safe from the public.
 
@@ -67,10 +67,14 @@ Route::resource('admin/styleguide/basics','Xpersonas\Styleguide\Http\Controllers
 admin/styleguide/*
 ```
 
-### Nova Ready ###
+## Nova Ready (optional)
 https://nova.laravel.com
 
-This package is Nova-ready. If you want to manage styleguide settings, patterns, and colors within the Nova CMS see instructions below.
+This package is Nova-ready. If you want to manage styleguide settings, patterns, and colors within a "beautifully designed administration panel" then follow the instructions below.
+
+<img width="1259" alt="Screen Shot 2020-08-13 at 12 29 12 PM" src="https://user-images.githubusercontent.com/5023924/90166943-9b47e300-dd60-11ea-90b1-7f8a8b1f5afe.png">
+
+### Installation
 
 Modify your Nova service provider.
 ```
@@ -102,6 +106,16 @@ protected function resources()
     ]);
 }
 ```
+
+### Laravel Nova Color Field (optional)
+
+This package is also compatible with the excellent Laravel Nova Color Field from [timothyasp](https://github.com/timothyasp/nova-color-field). 
+
+```
+composer require timothyasp/nova-color-field
+```
+
+<img width="1006" alt="Screen Shot 2020-08-13 at 12 09 42 PM" src="https://user-images.githubusercontent.com/5023924/90165163-e4e2fe80-dd5d-11ea-843b-7e5a27e162db.png">
 
 ## Contribute
 
