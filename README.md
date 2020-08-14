@@ -27,7 +27,7 @@ Admins can also create custom patterns with a built in codemirror textarea.
 This package comes with 3 models: basic settings, colors, and patterns. Run the following 
 
 ```
-composer require xpersonas/styleguide
+composer require xpersonas/laravel-styleguide
 php artisan vendor:publish --tag=xpersonas-styleguide
 php artisan migrate
 ```
