@@ -77,13 +77,6 @@ This package is Nova-ready. If you want to manage styleguide settings, patterns,
 ### Installation
 
 Add our Nova Tool to your Nova Service Proivder:
-```
-// app/Providers/NovaServiceProvider.php
-
-
-```
-
-Then add the resource() method with the following resources:
 
 ```
 // app/Providers/NovaServiceProvider.php
