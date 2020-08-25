@@ -41,7 +41,7 @@ Add this to your template:
 <x-styleguide-base />
 ```
 
-Edit your Styleguide settings by visiting `/simple-styleguide` on your site.
+Edit your Styleguide settings by visiting `/admin/styleguide` on your site.
 
 ## Stylesheets
 
