@@ -870,6 +870,9 @@
                 <a name="pattern--{{$pattern['id']}}"></a>
                 <h3 class="simple-styleguide--sectionhead">{{$pattern['title']}}</h3>
                 <p>{!! $pattern['description'] !!}</p>
+                
+                {!! $pattern['pattern'] !!}
+
                 <div class="simple-styleguide">
                     <pre>{!! e($pattern['pattern']) !!}</pre>
                 </div>
