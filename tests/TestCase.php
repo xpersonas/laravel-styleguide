@@ -6,6 +6,8 @@ use Xpersonas\Styleguide\StyleguideServiceProvider;
 
 abstract class TestCase extends \Orchestra\Testbench\TestCase
 {
+    public $useMigrations = true;
+
     protected function getPackageProviders($app)
     {
         return [
@@ -26,6 +28,10 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->loadMigrationsFrom(__DIR__.'/../src/database/migrations');
+
+
+        if ($this->useMigrations) {
+            $this->loadMigrationsFrom(__DIR__.'/../src/database/migrations');
+        }
     }
 }
