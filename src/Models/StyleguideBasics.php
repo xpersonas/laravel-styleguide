@@ -1,6 +1,6 @@
 <?php
 
-namespace Xpersonas\Styleguide;
+namespace Xpersonas\Styleguide\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Eloquent;

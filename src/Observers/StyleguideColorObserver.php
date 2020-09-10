@@ -2,7 +2,7 @@
 
 namespace Xpersonas\Styleguide\Observers;
 
-use Xpersonas\Styleguide\StyleguideColor;
+use Xpersonas\Styleguide\Models\StyleguideColor;
 use Illuminate\Support\Str;
 
 class StyleguideColorObserver

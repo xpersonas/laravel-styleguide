@@ -3,9 +3,9 @@
 namespace Xpersonas\Styleguide\View\Components;
 
 use Illuminate\View\Component;
-use Xpersonas\Styleguide\StyleguideBasics;
-use Xpersonas\Styleguide\StyleguideColor;
-use Xpersonas\Styleguide\StyleguidePattern;
+use Xpersonas\Styleguide\Models\StyleguideBasics;
+use Xpersonas\Styleguide\Models\StyleguideColor;
+use Xpersonas\Styleguide\Models\StyleguidePattern;
 
 class Base extends Component
 {

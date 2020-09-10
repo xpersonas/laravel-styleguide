@@ -1,7 +1,9 @@
 <?php
 
+namespace Xpersonas\Styleguide\Database\Seeders;
+
 use Illuminate\Database\Seeder;
-use Xpersonas\Styleguide\StyleguideBasics;
+use Xpersonas\Styleguide\Models\StyleguideBasics;
 
 class StyleguideBasicsSeeder extends Seeder
 {
@@ -12,6 +14,6 @@ class StyleguideBasicsSeeder extends Seeder
      */
     public function run()
     {
-        factory(StyleguideBasics::class, 1)->create();
+        StyleguideBasics::class, 1)->create();
     }
 }

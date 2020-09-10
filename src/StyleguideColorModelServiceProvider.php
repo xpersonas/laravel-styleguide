@@ -4,7 +4,7 @@ namespace Xpersonas\Styleguide\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Xpersonas\Styleguide\Observers\StyleguideColorObserver;
-use Xpersonas\Styleguide\StyleguideColor;
+use Xpersonas\Styleguide\Models\StyleguideColor;
 
 class StyleguideColorModelServiceProvider extends ServiceProvider
 {

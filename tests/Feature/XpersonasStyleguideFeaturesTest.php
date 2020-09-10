@@ -3,12 +3,15 @@
 namespace Xpersonas\Styleguide\Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Xpersonas\Styleguide\StyleguideBasics;
-use Xpersonas\Styleguide\StyleguidePattern;
-use Xpersonas\Styleguide\StyleguideColor;
+use Xpersonas\Styleguide\Models\StyleguideBasics;
+use Xpersonas\Styleguide\Models\StyleguidePattern;
+use Xpersonas\Styleguide\Models\StyleguideColor;
 use Xpersonas\Styleguide\Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\WithFaker;
+use Xpersonas\Styleguide\Database\Factories\StyleguideBasicsFactory;
+use Xpersonas\Styleguide\Database\Factories\StyleguideColorFactory;
+use Xpersonas\Styleguide\Database\Factories\StyleguidePatternFactory;
 
 class XpersonasStyleguideFeaturesTest extends TestCase
 {
@@ -43,7 +46,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
      */
     public function testStyleguideDynamicContentBasics()
     {
-        factory(StyleguideBasics::class, 10)->create();
+        StyleguideBasicsFactory::new()->count(10)->create();
 
         $response = $this->get('admin/styleguide');
         $response->assertSee('Default patterns');
@@ -56,7 +59,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
      */
     public function testStyleguideDynamicContentPatterns()
     {
-        factory(StyleguidePattern::class, 10)->create();
+        StyleguidePatternFactory::new()->count(10)->create();
 
         $response = $this->get('admin/styleguide');
         $response->assertSee('Custom patterns');
@@ -69,7 +72,7 @@ class XpersonasStyleguideFeaturesTest extends TestCase
      */
     public function testStyleguideDynamicContentColors()
     {
-        factory(StyleguideColor::class, 4)->create();
+        StyleguideColorFactory::new()->count(10)->create();
 
         $response = $this->get('admin/styleguide');
         $response->assertSee('styleguide colors');
