@@ -2,10 +2,11 @@
 
 namespace Xpersonas\Styleguide\Tests\Feature\View\Components;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Xpersonas\Styleguide\StyleguideBasics;
 use Xpersonas\Styleguide\Tests\TestCase;
+use Xpersonas\Styleguide\Models\StyleguideBasics;
 use Xpersonas\Styleguide\View\Components\Base;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Xpersonas\Styleguide\Database\Factories\StyleguideBasicsFactory;
 
 class BaseTest extends TestCase
 {
@@ -13,7 +14,7 @@ class BaseTest extends TestCase
 
     public function test_isDefaultComponentsEmpty()
     {
-        factory(StyleguideBasics::class)->create([
+        StyleguideBasicsFactory::new()->create([
             'headings' => 0,
             'text' => 0,
             'lists' => 0,

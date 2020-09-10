@@ -1,7 +1,9 @@
 <?php
 
+namespace Xpersonas\Styleguide\Database\Seeders;
+
 use Illuminate\Database\Seeder;
-use Xpersonas\Styleguide\StyleguidePattern;
+use Xpersonas\Styleguide\Models\StyleguidePattern;
 
 class StyleguidePatternSeeder extends Seeder
 {
@@ -12,6 +14,6 @@ class StyleguidePatternSeeder extends Seeder
      */
     public function run()
     {
-        factory(StyleguidePattern::class, 50)->create();
+        StyleguidePattern::class, 50)->create();
     }
 }
