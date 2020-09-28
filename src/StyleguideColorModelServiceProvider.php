@@ -1,6 +1,6 @@
 <?php
 
-namespace Xpersonas\Styleguide\Providers;
+namespace Xpersonas\Styleguide;
 
 use Illuminate\Support\ServiceProvider;
 use Xpersonas\Styleguide\Observers\StyleguideColorObserver;
