@@ -124,6 +124,8 @@
 
 .simple-styleguide--color--swatch--usage {
     border-top: 1px solid #9e9e9e;
+    padding-top: 5px;
+    margin-top: 5px;
 }
 
 .simple-styleguide--color--swatch--class label,
@@ -131,6 +133,7 @@
 .simple-styleguide--color--swatch label {
     display: inline;
     font-weight: bold;
+    padding: 0;
 }
 
 .simple-styleguide--color--swatch {
