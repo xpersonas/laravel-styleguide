@@ -1,3 +1,5 @@
 node_modules
 vendor
 reports
+.phpunit.result.cache
+

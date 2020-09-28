@@ -15,7 +15,7 @@ class StyleguideBasics extends Resource
      *
      * @var string
      */
-    public static $model = \Xpersonas\Styleguide\StyleguideBasics::class;
+    public static $model = \Xpersonas\Styleguide\Models\StyleguideBasics::class;
 
     /**
      * The logical group associated with the resource.
@@ -52,7 +52,7 @@ class StyleguideBasics extends Resource
 
     public static function authorizedToCreate(Request $request)
     {
-        $basics = \Xpersonas\Styleguide\StyleguideBasics::all();
+        $basics = \Xpersonas\Styleguide\Models\StyleguideBasics::all();
 
         if ($basics->isEmpty()) {
             return true;

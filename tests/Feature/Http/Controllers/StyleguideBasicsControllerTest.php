@@ -2,10 +2,11 @@
 
 namespace Xpersonas\Styleguide\Tests\Feature\Http\Controllers;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\Client\Request;
-use Xpersonas\Styleguide\StyleguideBasics;
 use Xpersonas\Styleguide\Tests\TestCase;
+use Xpersonas\Styleguide\Models\StyleguideBasics;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Xpersonas\Styleguide\Database\Factories\StyleguideBasicsFactory;
 
 class StyleguideBasicsControllerTest extends TestCase
 {
@@ -16,7 +17,7 @@ class StyleguideBasicsControllerTest extends TestCase
         $response = $this->get(route('basics.index'));
         $response->assertStatus(200);
 
-        $basics = factory(StyleguideBasics::class)->create([
+        $basics = StyleguideBasicsFactory::new()->create([
             'headings' => 1,
         ]);
         $response = $this->get(route('basics.index'));
@@ -51,7 +52,7 @@ class StyleguideBasicsControllerTest extends TestCase
 
     public function test_edit()
     {
-        $basics = factory(StyleguideBasics::class)->create();
+        $basics = StyleguideBasicsFactory::new()->create();
         $response = $this->get(route('basics.edit', $basics->id));
         $response->assertStatus(200);
         $response->assertSee($basics->title);
@@ -60,7 +61,7 @@ class StyleguideBasicsControllerTest extends TestCase
     public function test_update()
     {
         // Create a record of basic settings with all options inactive.
-        $basics = factory(StyleguideBasics::class)->create([
+        $basics = StyleguideBasicsFactory::new()->create([
             'headings' => 0,
             'text' => 0,
             'lists' => 0,

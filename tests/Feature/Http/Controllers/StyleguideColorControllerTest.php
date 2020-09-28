@@ -2,9 +2,10 @@
 
 namespace Xpersonas\Styleguide\Tests\Feature\Http\Controllers;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Xpersonas\Styleguide\StyleguideColor;
 use Xpersonas\Styleguide\Tests\TestCase;
+use Xpersonas\Styleguide\Models\StyleguideColor;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Xpersonas\Styleguide\Database\Factories\StyleguideColorFactory;
 
 class StyleguideColorControllerTest extends TestCase
 {
@@ -24,12 +25,12 @@ class StyleguideColorControllerTest extends TestCase
 
     public function test_store()
     {
-        $color = factory(StyleguideColor::class)->make();
+        $color = StyleguideColorFactory::new()->make();
         $response = $this->post(route('color.store'), $color->toArray());
         $response->assertSessionHasNoErrors();
         $this->assertEquals(1, StyleguideColor::all()->count());
 
-        $color = factory(StyleguideColor::class)->create();
+        $color = StyleguideColorFactory::new()->create();
         $response = $this->get(route('color.index')); // your route to get
         $response->assertSessionHasNoErrors();
         $response->assertSee($color->class);
@@ -37,7 +38,7 @@ class StyleguideColorControllerTest extends TestCase
 
     public function test_edit()
     {
-        $color = factory(StyleguideColor::class)->create();
+        $color = StyleguideColorFactory::new()->create();
         $response = $this->get(route('color.edit', $color->id)); // your
         $response->assertStatus(200);
         $response->assertSee($color->class);
@@ -45,7 +46,7 @@ class StyleguideColorControllerTest extends TestCase
 
     public function test_update()
     {
-        $color = factory(StyleguideColor::class)->create();
+        $color = StyleguideColorFactory::new()->create();
         $color->class = "Updated Title";
         $response = $this->put(route('color.update', $color->id), $color->toArray());
         $response->assertSessionHasNoErrors();
@@ -54,7 +55,7 @@ class StyleguideColorControllerTest extends TestCase
 
     public function test_destroy()
     {
-        $color = factory(StyleguideColor::class)->create();
+        $color = StyleguideColorFactory::new()->create();
         $this->assertDatabaseHas('styleguide_colors', ['id'=> $color->id]);
         $response = $this->delete(route('color.destroy', $color->id), $color->toArray());
         $response->assertSessionHasNoErrors();
@@ -63,21 +64,21 @@ class StyleguideColorControllerTest extends TestCase
 
     public function test_hex_is_properly_formatted()
     {
-        $color = factory(StyleguideColor::class)->make([
+        $color = StyleguideColorFactory::new()->make([
             'hex' => "#FFFFFF"
         ]);
         $response = $this->post(route('color.store'), $color->toArray());
         $response->assertSessionHasNoErrors();
         $this->assertEquals('#FFFFFF', StyleguideColor::first()->hex);
 
-        $color = factory(StyleguideColor::class)->make([
+        $color = StyleguideColorFactory::new()->make([
             'hex' => "FFFFFF"
         ]);
         $response = $this->post(route('color.store'), $color->toArray());
         $response->assertSessionHasNoErrors();
         $this->assertEquals('#FFFFFF', StyleguideColor::first()->hex);
 
-        $color = factory(StyleguideColor::class)->make([
+        $color = StyleguideColorFactory::new()->make([
             'hex' => "FFFF"
         ]);
         $response = $this->post(route('color.store'), $color->toArray());

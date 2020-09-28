@@ -1,7 +1,9 @@
 <?php
 
+namespace Xpersonas\Styleguide\Database\Seeders;
+
 use Illuminate\Database\Seeder;
-use Xpersonas\Styleguide\StyleguideColor;
+use Xpersonas\Styleguide\Models\StyleguideColor;
 
 class StyleguideColorSeeder extends Seeder
 {
@@ -12,6 +14,6 @@ class StyleguideColorSeeder extends Seeder
      */
     public function run()
     {
-        factory(StyleguideColor::class, 5)->create();
+        StyleguideColor::class, 5)->create();
     }
 }

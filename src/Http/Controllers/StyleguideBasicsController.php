@@ -4,7 +4,7 @@ namespace Xpersonas\Styleguide\Http\Controllers;
 
 use Xpersonas\Styleguide\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Xpersonas\Styleguide\StyleguideBasics;
+use Xpersonas\Styleguide\Models\StyleguideBasics;
 
 class StyleguideBasicsController extends Controller
 {

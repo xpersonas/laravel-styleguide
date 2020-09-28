@@ -5,7 +5,7 @@ namespace Xpersonas\Styleguide\Http\Controllers;
 use Xpersonas\Styleguide\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Xpersonas\Styleguide\Http\Requests\StyleguideColorPost;
-use Xpersonas\Styleguide\StyleguideColor;
+use Xpersonas\Styleguide\Models\StyleguideColor;
 
 class StyleguideColorController extends Controller
 {
