@@ -18,9 +18,9 @@ class StyleguidePattern extends Resource
      *
      * @var string
      */
-    public static $model = \Xpersonas\Styleguide\StyleguidePattern::class;
+    public static $model = \Xpersonas\Styleguide\Models\StyleguidePattern::class;
 
-    /**
+    /**s
      * The logical group associated with the resource.
      *
      * @var string
