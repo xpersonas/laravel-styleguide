@@ -17,7 +17,7 @@ class StyleguideColor extends Resource
      *
      * @var string
      */
-    public static $model = \Xpersonas\Styleguide\StyleguideColor::class;
+    public static $model = \Xpersonas\Styleguide\Models\StyleguideColor::class;
 
     /**
      * The logical group associated with the resource.
