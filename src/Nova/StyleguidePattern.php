@@ -20,7 +20,7 @@ class StyleguidePattern extends Resource
      */
     public static $model = \Xpersonas\Styleguide\Models\StyleguidePattern::class;
 
-    /**s
+    /**
      * The logical group associated with the resource.
      *
      * @var string
