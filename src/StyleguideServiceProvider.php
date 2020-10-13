@@ -20,7 +20,7 @@ class StyleguideServiceProvider extends ServiceProvider
         $this->app->make('Xpersonas\Styleguide\Http\Controllers\StyleguideController');
 
         // Package views.
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'styleguide');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'styleguide');
     }
 
     /**
@@ -34,7 +34,7 @@ class StyleguideServiceProvider extends ServiceProvider
         $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
 
         // Package views.
-        $this->loadViewsFrom(__DIR__.'/resources/views', 'styleguide');
+        $this->loadViewsFrom(__DIR__ . '/resources/views', 'styleguide');
 
         // Package migrations.
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
@@ -44,9 +44,9 @@ class StyleguideServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            __DIR__.'/public/js/styleguide.js' =>
+            __DIR__ . '/public/js/styleguide.js' =>
                 public_path('js/vendor/xpersonas/styleguide.js'),
-            __DIR__.'/public/css/styleguide.css' =>
+            __DIR__ . '/public/css/styleguide.css' =>
                 public_path('css/vendor/xpersonas/styleguide.css'),
             __DIR__.'/database/seeders/StyleguideBasicsSeeder.php' =>
                 database_path('seeders/StyleguideBasicsSeeder.php'),

@@ -157,3 +157,12 @@
     font-weight: bold;
     display: inline;
 }
+
+.simple-styleguide-buttons {
+    list-style: none;
+    margin: 0;
+
+    li {
+        margin-bottom: 1em;
+    }
+}

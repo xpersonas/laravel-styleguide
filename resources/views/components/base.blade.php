@@ -837,26 +837,31 @@
                 <a name="buttons"></a>
                 <h3 class="simple-styleguide--sectionhead">buttons</h3>
                 <div class="simple-styleguide">
-                    <a href="javascript:void(0);" class="button">Link Button</a>
-                    <a href="javascript:void(0);" class="button active">Link Button Active</a>
-                    <input type="button" value="Button Input" class="button">
-                    <input type="reset" value="Reset Input" class="button">
-                    <input type="submit" value="Form Submit" class="button">
-                    <button type="button" name="button">Button</button>
-                    <button type="submit" name="submit2">Submit</button>
-                    <button type="reset" name="reset2">Reset</button>
-                    <button disabled>Cancel</button>
+                    <ul class="simple-styleguide-buttons">
+                        <li><a href="javascript:void(0);" class="button">Link Button</a></li>
+                        <li><a href="javascript:void(0);" class="button active">Link Button Active</a></li>
+                        <li><input type="button" value="Button Input" class="button"></li>
+                        <li><input type="reset" value="Reset Input" class="button"></li>
+                        <li><input type="submit" value="Form Submit" class="button"></li>
+                        <li><button type="button" name="button">Button</button></li>
+                        <li><button type="submit" name="submit2">Submit</button></li>
+                        <li><button type="reset" name="reset2">Reset</button></li>
+                        <li><button disabled>Cancel</button></li>
+                    </ul>
 
-                    <code>
-                        &lt;a href="javascript:void(0);" class="button"&gt;Link Button&lt;/a&gt;<br>
-                        &lt;a href="javascript:void(0);" class="button active"&gt;Link Button Active&lt;/a&gt;<br>
-                        &lt;input type="button" value="Button Input" class="button" /&gt;<br>
-                        &lt;input type="reset" value="Form Reset" class="button" /&gt;<br>
-                        &lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;<br>
-                        &lt;button type=&quot;submit&quot; name=&quot;submit2&quot;&gt;Submit&lt;/button&gt;<br>
-                        &lt;button type=&quot;reset&quot; name=&quot;reset2&quot;&gt;Reset&lt;/button&gt;<br>
-                        &lt;button disabled&gt;Cancel&lt;/button&gt;<br>
-                    </code>
+                    <details>
+                        <summary>View Source Code</summary>
+                        <pre>
+                            &lt;a href="javascript:void(0);" class="button"&gt;Link Button&lt;/a&gt;<br>
+                            &lt;a href="javascript:void(0);" class="button active"&gt;Link Button Active&lt;/a&gt;<br>
+                            &lt;input type="button" value="Button Input" class="button" /&gt;<br>
+                            &lt;input type="reset" value="Form Reset" class="button" /&gt;<br>
+                            &lt;button type=&quot;button&quot; name=&quot;button&quot;&gt;Button&lt;/button&gt;<br>
+                            &lt;button type=&quot;submit&quot; name=&quot;submit2&quot;&gt;Submit&lt;/button&gt;<br>
+                            &lt;button type=&quot;reset&quot; name=&quot;reset2&quot;&gt;Reset&lt;/button&gt;<br>
+                            &lt;button disabled&gt;Cancel&lt;/button&gt;<br>
+                        </pre>
+                    </details>
                 </div>
             @endif
         @endif
