@@ -851,7 +851,7 @@
 
                     <details>
                         <summary>View Source Code</summary>
-                        <pre>
+                        <code>
                             &lt;a href="javascript:void(0);" class="button"&gt;Link Button&lt;/a&gt;<br>
                             &lt;a href="javascript:void(0);" class="button active"&gt;Link Button Active&lt;/a&gt;<br>
                             &lt;input type="button" value="Button Input" class="button" /&gt;<br>
@@ -860,7 +860,7 @@
                             &lt;button type=&quot;submit&quot; name=&quot;submit2&quot;&gt;Submit&lt;/button&gt;<br>
                             &lt;button type=&quot;reset&quot; name=&quot;reset2&quot;&gt;Reset&lt;/button&gt;<br>
                             &lt;button disabled&gt;Cancel&lt;/button&gt;<br>
-                        </pre>
+                        </code>
                     </details>
                 </div>
             @endif
