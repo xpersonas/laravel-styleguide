@@ -85,12 +85,20 @@ class StyleguideBasicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $basics = collect($request->input('basics'))
-            ->mapWithKeys(function ($value) {
-                return [$value => 1];
-            });
+        $input = $request->input('basics');
+        $styleguideBasics = new StyleguideBasics();
+        $fillable = $styleguideBasics->getFillable();
+        $model = $styleguideBasics->find($id);
 
-        StyleguideBasics::updateOrCreate(['id' => $id], $basics->toArray());
+        foreach ($fillable as $value) {
+            if (!empty($input) && in_array($value, $input)) {
+                $model->$value = 1;
+            } else {
+                $model->$value = 0;
+            }
+        }
+
+        $model->save();
 
         return redirect()->route('basics.edit', $id)->with('success', 'Styleguide color is successfully updated.');
     }
