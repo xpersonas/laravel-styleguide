@@ -22,7 +22,7 @@
     },
     "require": {
         "php": ">=7.3",
-        "eloquent/composer-npm-bridge": "^4.1"
+        "eloquent/composer-npm-bridge": "^5.0"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.2",
